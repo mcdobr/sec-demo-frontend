@@ -1,0 +1,16 @@
+<h2 *ngIf="!name">
+  You are not logged in!
+</h2>
+
+<h2 *ngIf="name">
+  Hello, {{name}}!
+</h2>
+
+<div>
+  <button (click)="login()">Login</button>
+  <button (click)="logout()">Logout</button>
+</div>
+
+<div>
+  Hint: max/geheim
+</div>
