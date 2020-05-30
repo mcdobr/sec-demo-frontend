@@ -1,16 +1,14 @@
-<h2 *ngIf="!name">
+<h2 *ngIf="!isAuthenticated">
   You are not logged in!
 </h2>
 
-<h2 *ngIf="name">
+<h2 *ngIf="isAuthenticated">
   Hello, {{name}}!
 </h2>
 
 <div>
-  <button (click)="login()">Login</button>
-  <button (click)="logout()">Logout</button>
+  <button *ngIf="!isAuthenticated" (click)="login()">Login</button>
+  <button *ngIf="isAuthenticated" (click)="logout()">Logout</button>
+  <button *ngIf="isAuthenticated" (click)="getHello()">Make HTTP GET request</button>
 </div>
 
-<div>
-  Hint: max/geheim
-</div>
