@@ -18,7 +18,5 @@ export const authConfig: AuthConfig = {
 
   // Google does not conform to this and it is not in the specs as per
   // https://github.com/manfredsteyer/angular-oauth2-oidc/issues/419
-  strictDiscoveryDocumentValidation: false,
-
-
+  strictDiscoveryDocumentValidation: false
 };

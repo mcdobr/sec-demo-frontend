@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   }
 
   login() {
-    this.oAuthService.initImplicitFlow();
+    this.oAuthService.initCodeFlow();
   }
 
   logout() {
@@ -26,13 +26,16 @@ export class HomeComponent implements OnInit {
     this.httpClient.get('http://localhost:8080/api/users/hello').subscribe();
   }
 
+  mergeUser() {
+    if (this.oAuthService.hasValidAccessToken()) {
+      this.httpClient.put(`http://localhost:8080/api/users/${this.oAuthService.getIdentityClaims()['sub']}`, {
+        abc: 'def'
+      }).subscribe();
+    }
+  }
+
 
   public get name() {
-    // console.log(this.oAuthService.getIdentityClaims());
-    // console.log(this.oAuthService.getAccessToken());
-    // console.log(this.oAuthService.getRefreshToken());
-
-    localStorage.setItem('accessToken', this.oAuthService.getAccessToken());
     const claims = this.oAuthService.getIdentityClaims();
     if (!claims) {
       return null;

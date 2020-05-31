@@ -10,5 +10,6 @@
   <button *ngIf="!isAuthenticated" (click)="login()">Login</button>
   <button *ngIf="isAuthenticated" (click)="logout()">Logout</button>
   <button *ngIf="isAuthenticated" (click)="getHello()">Make HTTP GET request</button>
+  <button (click)="mergeUser()">Merge the user on the resource server</button>
 </div>
 
