@@ -7,6 +7,10 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {OAuthModule} from 'angular-oauth2-oidc';
 import {HomeComponent} from './home/home.component';
 import {AuthorizationInterceptor} from './authorization.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import {AuthorizationInterceptor} from './authorization.interceptor';
         sendAccessToken: true
       }
     }),
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatToolbarModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

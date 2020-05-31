@@ -28,9 +28,7 @@ export class HomeComponent implements OnInit {
 
   mergeUser() {
     if (this.oAuthService.hasValidAccessToken()) {
-      this.httpClient.put(`http://localhost:8080/api/users/${this.oAuthService.getIdentityClaims()['sub']}`, {
-        abc: 'def'
-      }).subscribe();
+      this.httpClient.put(`http://localhost:8080/api/users/${this.oAuthService.getIdentityClaims()['sub']}`, {}).subscribe();
     }
   }
 

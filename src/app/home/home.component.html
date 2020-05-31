@@ -1,15 +1,11 @@
-<h2 *ngIf="!isAuthenticated">
-  You are not logged in!
-</h2>
-
 <h2 *ngIf="isAuthenticated">
   Hello, {{name}}!
 </h2>
 
 <div>
-  <button *ngIf="!isAuthenticated" (click)="login()">Login</button>
-  <button *ngIf="isAuthenticated" (click)="logout()">Logout</button>
-  <button *ngIf="isAuthenticated" (click)="getHello()">Make HTTP GET request</button>
-  <button (click)="mergeUser()">Merge the user on the resource server</button>
+  <button mat-raised-button color="accent" *ngIf="!isAuthenticated" (click)="login()">Login with Google</button>
+  <button mat-raised-button color="accent" *ngIf="isAuthenticated" (click)="logout()">Logout</button>
+  <button mat-raised-button color="accent" *ngIf="isAuthenticated" (click)="getHello()">Make HTTP GET request</button>
+  <button mat-raised-button color="accent" *ngIf="isAuthenticated" (click)="mergeUser()">Merge the user on the resource server</button>
 </div>
 
