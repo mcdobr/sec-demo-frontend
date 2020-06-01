@@ -18,6 +18,9 @@
     <mat-header-cell *matHeaderCellDef>Last Modified</mat-header-cell>
     <mat-cell *matCellDef="let expense"> {{expense.lastModifiedTimestamp}}</mat-cell>
   </ng-container>
+
+  <mat-header-row *matHeaderRowDef="this.displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: this.displayedColumns;"></mat-row>
 </mat-table>
 
 <button mat-raised-button color="primary" (click)="openCreateExpenseDialog()">

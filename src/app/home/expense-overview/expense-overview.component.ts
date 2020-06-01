@@ -15,6 +15,7 @@ import {ExpenseFormComponent} from '../expense-form/expense-form.component';
 })
 export class ExpenseOverviewComponent implements OnInit {
   expensesDataSource: ExpensesDataSource;
+  displayedColumns: string[] = ['sum', 'category', 'created', 'lastModified'];
 
   constructor(private expenseService: ExpenseService) {
   }
