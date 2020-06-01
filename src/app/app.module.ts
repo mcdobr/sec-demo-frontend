@@ -13,10 +13,13 @@ import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
 import { ExpenseOverviewComponent } from './home/expense-overview/expense-overview.component';
-import {IncomeOverviewComponent} from './home/remuneration/income-overview.component';
+import {IncomeOverviewComponent} from './home/income-overview/income-overview.component';
 import { CreateExpenseModalComponent } from './home/modals/create-expense-modal/create-expense-modal.component';
 import {MatIconModule} from '@angular/material/icon';
 import { ExpenseFormComponent } from './home/expense-form/expense-form.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {ExpenseService} from './expense.service';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,13 +45,17 @@ import { ExpenseFormComponent } from './home/expense-form/expense-form.component
     MatCardModule,
     MatToolbarModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthorizationInterceptor,
     multi: true
-  }],
+  },
+  ExpenseService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [ExpenseFormComponent]
 })

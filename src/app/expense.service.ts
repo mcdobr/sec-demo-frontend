@@ -15,4 +15,9 @@ export class ExpenseService {
   getExpenses(): Observable<Expense[]> {
     return this.httpClient.get<Expense[]>(`${this.apiUrl}/expenses`);
   }
+
+  create(expense: any) {
+    console.log('Called service method');
+    return this.httpClient.post(`${this.apiUrl}/expenses`, expense).subscribe();
+  }
 }
