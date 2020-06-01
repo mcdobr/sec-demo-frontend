@@ -11,11 +11,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTableModule} from '@angular/material/table';
+import { ExpenseOverviewComponent } from './home/expense-overview/expense-overview.component';
+import {IncomeOverviewComponent} from './home/remuneration/income-overview.component';
+import { CreateExpenseModalComponent } from './home/modals/create-expense-modal/create-expense-modal.component';
+import {MatIconModule} from '@angular/material/icon';
+import { ExpenseFormComponent } from './home/expense-form/expense-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ExpenseOverviewComponent,
+    IncomeOverviewComponent,
+    CreateExpenseModalComponent,
+    ExpenseFormComponent
   ],
   imports: [
     BrowserModule,
@@ -30,14 +40,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTableModule,
+    MatIconModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthorizationInterceptor,
     multi: true
   }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ExpenseFormComponent]
 })
 export class AppModule {
 }

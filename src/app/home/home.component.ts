@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {OAuthService} from 'angular-oauth2-oidc';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-home',

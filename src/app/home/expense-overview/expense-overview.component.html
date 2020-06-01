@@ -1,0 +1,25 @@
+<mat-table [dataSource]="expensesDataSource">
+  <ng-container matColumnDef="sum">
+    <mat-header-cell *matHeaderCellDef>Sum</mat-header-cell>
+    <mat-cell *matCellDef="let expense"> {{expense.sum}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef>Category</mat-header-cell>
+    <mat-cell *matCellDef="let expense"> {{expense.expenseCategory}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="created">
+    <mat-header-cell *matHeaderCellDef>Created</mat-header-cell>
+    <mat-cell *matCellDef="let expense"> {{expense.createdTimestamp}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="lastModified">
+    <mat-header-cell *matHeaderCellDef>Last Modified</mat-header-cell>
+    <mat-cell *matCellDef="let expense"> {{expense.lastModifiedTimestamp}}</mat-cell>
+  </ng-container>
+</mat-table>
+
+<button mat-raised-button color="primary" (click)="openCreateExpenseDialog()">
+  <mat-icon>add</mat-icon> Expense
+</button>
