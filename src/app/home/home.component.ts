@@ -9,7 +9,7 @@ import {Observable} from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private oAuthService: OAuthService, private httpClient: HttpClient) {
+  constructor(private oAuthService: OAuthService) {
   }
 
   ngOnInit(): void {
@@ -21,26 +21,6 @@ export class HomeComponent implements OnInit {
 
   logout() {
     this.oAuthService.logOut();
-  }
-
-  getHello() {
-    this.httpClient.get('http://localhost:8080/api/users/hello').subscribe();
-  }
-
-  mergeUser() {
-    if (this.oAuthService.hasValidAccessToken()) {
-      this.httpClient.put(`http://localhost:8080/api/users/${this.oAuthService.getIdentityClaims()['sub']}`, {}).subscribe();
-    }
-  }
-
-
-  public get name() {
-    const claims = this.oAuthService.getIdentityClaims();
-    if (!claims) {
-      return null;
-    } else {
-      return claims['given_name'];
-    }
   }
 
   public get isAuthenticated() {

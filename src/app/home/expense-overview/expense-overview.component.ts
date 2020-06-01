@@ -7,6 +7,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {MatDialogConfig} from '@angular/material/dialog';
 import {MatDialogRef} from '@angular/material/dialog';
 import {ExpenseFormComponent} from '../expense-form/expense-form.component';
+import {UserService} from '../../user.service';
 
 @Component({
   selector: 'app-expenses-overview',
@@ -17,11 +18,13 @@ export class ExpenseOverviewComponent implements OnInit {
   expensesDataSource: ExpensesDataSource;
   displayedColumns: string[] = ['sum', 'category', 'created', 'lastModified'];
 
-  constructor(private expenseService: ExpenseService) {
+  constructor(private expenseService: ExpenseService,
+              private userService: UserService) {
   }
 
   ngOnInit(): void {
     this.expensesDataSource = new ExpensesDataSource(this.expenseService);
+    this.userService.mergeUser();
   }
 
   openCreateExpenseDialog() {

@@ -1,7 +1,7 @@
 <mat-table [dataSource]="expensesDataSource">
   <ng-container matColumnDef="sum">
     <mat-header-cell *matHeaderCellDef>Sum</mat-header-cell>
-    <mat-cell *matCellDef="let expense"> {{expense.sum}} </mat-cell>
+    <mat-cell *matCellDef="let expense"> {{expense.sum}} RON</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="category">
@@ -36,6 +36,6 @@
   <mat-row *matRowDef="let row; columns: this.displayedColumns;"></mat-row>
 </mat-table>
 
-<button mat-raised-button color="primary" (click)="openCreateExpenseDialog()">
-  <mat-icon>add</mat-icon> Expense
-</button>
+<!--<button mat-raised-button color="primary" (click)="openCreateExpenseDialog()">-->
+<!--  <mat-icon>add</mat-icon> Expense-->
+<!--</button>-->

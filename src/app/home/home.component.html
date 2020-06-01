@@ -1,16 +1,15 @@
 <div>
   <button mat-raised-button color="accent" *ngIf="!isAuthenticated" (click)="login()">Login with Google</button>
   <button mat-raised-button color="accent" *ngIf="isAuthenticated" (click)="logout()">Logout</button>
-  <button mat-raised-button color="accent" *ngIf="isAuthenticated" (click)="mergeUser()">Merge the user on the resource server</button>
 </div>
 
 <div *ngIf="isAuthenticated">
   <main>
     <app-expenses-overview></app-expenses-overview>
     <app-remuneration></app-remuneration>
+    <app-expense-form></app-expense-form>
   </main>
 </div>
 
 
 
-<app-expense-form></app-expense-form>
