@@ -36,7 +36,7 @@ import {UserService} from './user.service';
     HttpClientModule,
     OAuthModule.forRoot({
       resourceServer: {
-        allowedUrls: ['http://localhost:8080'],
+        allowedUrls: ['http://localhost:8081'],
         sendAccessToken: true
       }
     }),

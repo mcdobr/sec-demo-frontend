@@ -3,13 +3,15 @@ import {environment} from '../environments/environment';
 
 export const authConfig: AuthConfig = {
   // Url of the Identity Provider
-  issuer: 'https://accounts.google.com',
+  issuer: 'http://localhost:8080/auth/realms/demo',
 
   // URL of the SPA to redirect the user to after login
   redirectUri: window.location.origin + '/index.html',
 
   // The SPA's id. The SPA is registered with this id at the auth-server
-  clientId: environment.googleClientId,
+  clientId: environment.clientId,
+
+  responseType: 'code',
 
   // set the scope for the permissions the client should request
   scope: 'openid profile email',

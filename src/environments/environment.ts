@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  googleClientId: '196075472921-lr52v33ibnvaesgr06aupml38o3l2cqm.apps.googleusercontent.com',
-  apiBaseUri: 'http://localhost:8080/api'
+  clientId: 'expensy-ui',
+  apiBaseUri: 'http://localhost:8081/api'
 };
 
 /*
