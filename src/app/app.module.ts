@@ -12,24 +12,18 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
-import {ExpenseOverviewComponent} from './home/expense-overview/expense-overview.component';
-import {IncomeOverviewComponent} from './home/income-overview/income-overview.component';
 import {CreateExpenseModalComponent} from './home/modals/create-expense-modal/create-expense-modal.component';
 import {MatIconModule} from '@angular/material/icon';
-import {ExpenseFormComponent} from './home/expense-form/expense-form.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {ExpenseService} from './expense.service';
 import {ReactiveFormsModule} from '@angular/forms';
-import {UserService} from './user.service';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ExpenseOverviewComponent,
-    IncomeOverviewComponent,
     CreateExpenseModalComponent,
-    ExpenseFormComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +42,8 @@ import {UserService} from './user.service';
     MatTableModule,
     MatIconModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSidenavModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
@@ -56,10 +51,9 @@ import {UserService} from './user.service';
     multi: true
   },
     ExpenseService,
-    UserService
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ExpenseFormComponent]
+  entryComponents: []
 })
 export class AppModule {
 }
