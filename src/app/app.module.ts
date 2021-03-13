@@ -18,6 +18,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {TransactionService} from './transaction.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatIconModule,
     MatDialogModule,
     ReactiveFormsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatPaginatorModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

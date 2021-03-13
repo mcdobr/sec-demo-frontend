@@ -1,8 +1,10 @@
 export class Transaction {
   id: string;
   sum: number;
+  sender: string;
+  receiver: string;
   category: string;
-  email: string;
-  createdTimestamp: Date;
-  lastModifiedTimestamp: Date;
+  createdAt: Date;
+  lastModifiedAt: Date;
+  description: string;
 }

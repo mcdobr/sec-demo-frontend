@@ -12,7 +12,7 @@ export class TransactionService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getExpenses(): Observable<Transaction[]> {
+  getTransactions(): Observable<Transaction[]> {
     return this.httpClient.get<Transaction[]>(`${this.apiUrl}/expenses`);
   }
 
