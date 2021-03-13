@@ -1,4 +1,4 @@
-export class Expense {
+export class Transaction {
   id: string;
   sum: number;
   category: string;

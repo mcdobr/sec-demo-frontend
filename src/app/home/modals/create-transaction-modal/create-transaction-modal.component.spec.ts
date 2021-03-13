@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateExpenseModalComponent } from './create-expense-modal.component';
+import { CreateTransactionModalComponent } from './create-transaction-modal.component';
 
 describe('CreateExpenseModalComponent', () => {
-  let component: CreateExpenseModalComponent;
-  let fixture: ComponentFixture<CreateExpenseModalComponent>;
+  let component: CreateTransactionModalComponent;
+  let fixture: ComponentFixture<CreateTransactionModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateExpenseModalComponent ]
+      declarations: [ CreateTransactionModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateExpenseModalComponent);
+    fixture = TestBed.createComponent(CreateTransactionModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

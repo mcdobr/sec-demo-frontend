@@ -12,10 +12,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
-import {CreateExpenseModalComponent} from './home/modals/create-expense-modal/create-expense-modal.component';
+import {CreateTransactionModalComponent} from './home/modals/create-transaction-modal/create-transaction-modal.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
-import {ExpenseService} from './expense.service';
+import {TransactionService} from './transaction.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 
@@ -23,7 +23,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
   declarations: [
     AppComponent,
     HomeComponent,
-    CreateExpenseModalComponent,
+    CreateTransactionModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +50,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     useClass: AuthorizationInterceptor,
     multi: true
   },
-    ExpenseService,
+    TransactionService,
   ],
   bootstrap: [AppComponent],
   entryComponents: []
