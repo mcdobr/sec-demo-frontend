@@ -16,9 +16,7 @@ export class HomeComponent implements OnInit {
   }
 
   displayedColumns: string[] = ['id', 'sum', 'friend', 'createdAt'];
-  transactions: Transaction[] = [
-    {id: '2131', sum: 200, sender: '123', receiver: '423', createdAt: new Date(), lastModifiedAt: new Date(), category: 'MOCK', description: 'description'}
-  ];
+  transactions: Observable<Transaction[]> = this.transactionService.getTransactions();
 
   ngOnInit(): void {
   }
