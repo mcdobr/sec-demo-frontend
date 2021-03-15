@@ -9,11 +9,12 @@ import {Observable} from 'rxjs';
 })
 export class TransactionService {
   apiUrl = environment.apiBaseUri;
+  getAllTransactionsUrl = `${this.apiUrl}/transactions`;
 
   constructor(private httpClient: HttpClient) { }
 
   getTransactions(): Observable<Transaction[]> {
-    return this.httpClient.get<Transaction[]>(`${this.apiUrl}/transactions`);
+    return this.httpClient.get<Transaction[]>(this.getAllTransactionsUrl);
   }
 
   create(expense: any) {

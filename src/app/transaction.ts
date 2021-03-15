@@ -4,7 +4,7 @@ export class Transaction {
   sender: string;
   receiver: string;
   category: string;
-  createdAt: Date;
-  lastModifiedAt: Date;
+  createdAt: string;
+  lastModifiedAt: string;
   description: string;
 }

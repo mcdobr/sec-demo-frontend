@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(private oAuthService: OAuthService, private transactionService: TransactionService) {
   }
 
-  displayedColumns: string[] = ['id', 'sum', 'friend', 'createdAt'];
+  displayedColumns: string[] = ['id', 'sum', 'friend', 'time'];
   transactions: Observable<Transaction[]> = this.transactionService.getTransactions();
 
   ngOnInit(): void {
