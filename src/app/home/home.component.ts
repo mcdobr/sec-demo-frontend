@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
   constructor(private oAuthService: OAuthService, private transactionService: TransactionService) {
   }
 
-  displayedColumns: string[] = ['id', 'sum', 'friend', 'time'];
-  transactions: Observable<Transaction[]> = this.transactionService.getTransactions();
+  displayedColumns: string[] = ['id', 'sum', 'otherParty', 'time'];
+  transactions: Observable<Transaction[]> = this.transactionService.getTransactionStream();
 
   ngOnInit(): void {
   }
@@ -31,10 +31,6 @@ export class HomeComponent implements OnInit {
 
   public get isAuthenticated() {
     return this.oAuthService.hasValidAccessToken();
-  }
-
-  public principalIsSender(transaction: Transaction) {
-    return transaction.sender === this.subject;
   }
 
   get subject() {

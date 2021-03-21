@@ -15,18 +15,14 @@
       <ng-container matColumnDef="sum">
         <th mat-header-cell *matHeaderCellDef>sum </th>
         <td mat-cell *matCellDef="let element">
-          <span *ngIf="principalIsSender; then displaySumIfPrincipalIsSenderBlock else displaySumIfPrincipalIsReceiverBlock"></span>
-          <ng-template #displaySumIfPrincipalIsSenderBlock>-{{element.sum}}</ng-template>
-          <ng-template #displaySumIfPrincipalIsReceiverBlock>+{{element.sum}}</ng-template>
+          {{element.sum}}
         </td>
       </ng-container>
 
-      <ng-container matColumnDef="friend">
+      <ng-container matColumnDef="otherParty">
         <th mat-header-cell *matHeaderCellDef>friend </th>
         <td mat-cell *matCellDef="let element">
-          <span *ngIf="principalIsSender; then displayFriendIfPrincipalIsSenderBlock else displayFriendIfPrincipalIsReceiverBlock"></span>
-          <ng-template #displayFriendIfPrincipalIsSenderBlock>{{element.receiver}}</ng-template>
-          <ng-template #displayFriendIfPrincipalIsReceiverBlock>{{element.sender}}</ng-template>
+          {{element.otherParty}}
         </td>
       </ng-container>
 
