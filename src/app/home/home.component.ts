@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {OAuthService} from 'angular-oauth2-oidc';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {TransactionService} from '../transaction.service';
 import {Transaction} from '../transaction';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ import {Transaction} from '../transaction';
 })
 
 export class HomeComponent implements OnInit {
-  constructor(private oAuthService: OAuthService, private transactionService: TransactionService) {
+  constructor(private oAuthService: OAuthService,
+              private transactionService: TransactionService) {
   }
 
   displayedColumns: string[] = ['id', 'sum', 'otherParty', 'time'];
@@ -34,6 +36,6 @@ export class HomeComponent implements OnInit {
   }
 
   get subject() {
-    return this.oAuthService.getIdentityClaims()["sub"];
+    return this.oAuthService.getIdentityClaims()['sub'];
   }
 }
