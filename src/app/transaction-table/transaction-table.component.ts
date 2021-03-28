@@ -1,23 +1,21 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ViewChild, Component, OnInit} from '@angular/core';
 import {OAuthService} from 'angular-oauth2-oidc';
-import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {TransactionService} from '../transaction.service';
 import {Transaction} from '../transaction';
-import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './transaction-table.component.html',
+  styleUrls: ['./transaction-table.component.css']
 })
 
-export class HomeComponent implements OnInit {
+export class TransactionTableComponent implements OnInit {
   constructor(private oAuthService: OAuthService,
               private transactionService: TransactionService) {
   }
 
-  displayedColumns: string[] = ['id', 'sum', 'otherParty', 'time'];
+  displayedColumns: string[] = ['id', 'sum', 'otherParty', 'type', 'createdAt'];
   transactions: Observable<Transaction[]> = this.transactionService.getTransactionStream();
 
   ngOnInit(): void {
