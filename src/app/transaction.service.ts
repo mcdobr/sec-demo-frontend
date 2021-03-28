@@ -2,10 +2,10 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Transaction} from './transaction';
 import {environment} from '../environments/environment';
-import {Observable} from 'rxjs';
-import {ndjsonStream} from 'can-ndjson-stream';
+import {Observable, Subject} from 'rxjs';
 import {OAuthService} from 'angular-oauth2-oidc';
-
+import {tap} from 'rxjs/operators';
+import ndjsonStream from 'can-ndjson-stream';
 
 @Injectable({
   providedIn: 'root'
@@ -13,18 +13,14 @@ import {OAuthService} from 'angular-oauth2-oidc';
 export class TransactionService {
   apiUrl = environment.apiBaseUri;
 
+  transactions: Transaction[] = [];
+  transactionsSubject: Subject<Transaction[]> = new Subject<Transaction[]>();
+
   constructor(private httpClient: HttpClient, private oAuthService: OAuthService) {
   }
 
-  // getTransactionStream(): Observable<Transaction[]> {
-  getTransactionStream(): any {
-    // return this.httpClient.get<Transaction[]>(this.getAllTransactionsUrl);
+  getTransactionStream(): Observable<Transaction[]> {
     const getAllTransactionsUrl = `${this.apiUrl}/transactions`;
-
-    let transactions: Transaction[];
-
-
-    const obs: Observable<Transaction[]> = new Observable();
 
 
     fetch(getAllTransactionsUrl, {
@@ -34,11 +30,8 @@ export class TransactionService {
       }
     })
       .then(response => {
-        console.log(response.body);
-        // const stream = ndjsonStream(response.body);
-        // console.log(stream);
-        // return stream;
-        return response.body;
+        // Like most frameworks, stream are CONSUME-ONCE, so don't log here anything.
+        return ndjsonStream(response.body);
       })
       .then(stream => {
         let read;
@@ -46,22 +39,21 @@ export class TransactionService {
         reader.read().then(read = (result) => {
           if (result.done) {
             console.log('Done parsing ndjson stream of transactions.');
+            this.transactionsSubject.complete();
             return;
+          } else {
+            const decodedTransaction: Transaction = result.value;
+            // console.log(decodedTransaction);
+
+            // Add to the array of transactions and push a notification
+            this.transactions.push(decodedTransaction);
+            // console.log(this.transactions);
+            this.transactionsSubject.next(this.transactions);
+            reader.read().then(read); // recurse through the stream
           }
-
-          const decodedText = new TextDecoder().decode(result.value);
-          const tx = decodedText.split('\n')
-            .filter(str => str !== '').map(str => JSON.parse(str));
-          console.log(tx);
-
-          obs.subscribe(subscriber => {
-
-          });
-
-          reader.read().then(read); // recurse through the stream
         });
       });
-    // return new Observable();
+    return this.transactionsSubject.asObservable();
   }
 
   create(expense: any) {
