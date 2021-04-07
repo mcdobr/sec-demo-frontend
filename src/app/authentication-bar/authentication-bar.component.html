@@ -1,0 +1,4 @@
+<div>
+  <button mat-raised-button color="accent" *ngIf="!oAuthService.hasValidAccessToken()" (click)="login()">Login</button>
+  <button mat-raised-button color="accent" *ngIf="oAuthService.hasValidAccessToken()" (click)="logout()">Logout</button>
+</div>

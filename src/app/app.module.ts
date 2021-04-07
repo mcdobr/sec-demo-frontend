@@ -18,11 +18,13 @@ import {TransactionService} from './transaction.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { AuthenticationBarComponent } from './authentication-bar/authentication-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TransactionTableComponent,
+    AuthenticationBarComponent,
   ],
   imports: [
     BrowserModule,
