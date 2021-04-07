@@ -6,7 +6,7 @@ export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/auth/realms/demo',
 
   // URL of the SPA to redirect the user to after login
-  redirectUri: window.location.origin + '/index.html',
+  redirectUri: window.location.origin + '/transaction-table',
 
   // The SPA's id. The SPA is registered with this id at the auth-server
   clientId: environment.clientId,

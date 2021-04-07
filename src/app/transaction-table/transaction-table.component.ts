@@ -5,7 +5,7 @@ import {TransactionService} from '../transaction.service';
 import {Transaction} from '../transaction';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-transaction-table',
   templateUrl: './transaction-table.component.html',
   styleUrls: ['./transaction-table.component.css']
 })
@@ -19,14 +19,6 @@ export class TransactionTableComponent implements OnInit {
   transactions: Observable<Transaction[]> = this.transactionService.getTransactionStream();
 
   ngOnInit(): void {
-  }
-
-  login() {
-    this.oAuthService.initCodeFlow();
-  }
-
-  logout() {
-    this.oAuthService.logOut();
   }
 
   public get isAuthenticated() {

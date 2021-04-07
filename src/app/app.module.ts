@@ -19,12 +19,14 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { AuthenticationBarComponent } from './authentication-bar/authentication-bar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TransactionTableComponent,
     AuthenticationBarComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { AuthenticationBarComponent } from './authentication-bar/authentication-
     MatDialogModule,
     ReactiveFormsModule,
     MatSidenavModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    AppRoutingModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

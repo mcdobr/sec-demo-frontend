@@ -10,14 +10,4 @@ import {JwksValidationHandler} from 'angular-oauth2-oidc-jwks';
 })
 export class AppComponent {
   title = 'Expensy';
-
-  constructor(private oAuthService: OAuthService) {
-    this.configure();
-  }
-
-  private configure() {
-    this.oAuthService.configure(authConfig);
-    this.oAuthService.tokenValidationHandler = new JwksValidationHandler();
-    this.oAuthService.loadDiscoveryDocumentAndTryLogin();
-  }
 }

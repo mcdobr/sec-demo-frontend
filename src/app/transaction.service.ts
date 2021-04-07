@@ -4,7 +4,6 @@ import {Transaction} from './transaction';
 import {environment} from '../environments/environment';
 import {Observable, Subject} from 'rxjs';
 import {OAuthService} from 'angular-oauth2-oidc';
-import {tap} from 'rxjs/operators';
 import ndjsonStream from 'can-ndjson-stream';
 
 @Injectable({
@@ -16,12 +15,12 @@ export class TransactionService {
   transactions: Transaction[] = [];
   transactionsSubject: Subject<Transaction[]> = new Subject<Transaction[]>();
 
-  constructor(private httpClient: HttpClient, private oAuthService: OAuthService) {
+  constructor(private httpClient: HttpClient,
+              private oAuthService: OAuthService) {
   }
 
   getTransactionStream(): Observable<Transaction[]> {
     const getAllTransactionsUrl = `${this.apiUrl}/transactions`;
-
 
     fetch(getAllTransactionsUrl, {
       headers: {
