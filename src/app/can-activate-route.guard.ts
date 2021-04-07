@@ -9,6 +9,7 @@ export class CanActivateRouteGuard implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    console.log('Guard has been activated');
     return this.oAuthService.hasValidAccessToken();
   }
 }

@@ -21,10 +21,6 @@ export class TransactionTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public get isAuthenticated() {
-    return this.oAuthService.hasValidAccessToken();
-  }
-
   get subject() {
     return this.oAuthService.getIdentityClaims()['sub'];
   }
