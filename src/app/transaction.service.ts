@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Transaction} from './transaction';
 import {environment} from '../environments/environment';
 import {Observable, Subject} from 'rxjs';
-import {OAuthService} from 'angular-oauth2-oidc';
+import {OAuthService, OAuthStorage} from 'angular-oauth2-oidc';
 import ndjsonStream from 'can-ndjson-stream';
 
 @Injectable({
@@ -16,12 +16,16 @@ export class TransactionService {
   transactionsSubject: Subject<Transaction[]> = new Subject<Transaction[]>();
 
   constructor(private httpClient: HttpClient,
-              private oAuthService: OAuthService) {
+              private oAuthService: OAuthService,
+              private oAuthStorage: OAuthStorage) {
   }
 
   getTransactionStream(): Observable<Transaction[]> {
     const getAllTransactionsUrl = `${this.apiUrl}/transactions`;
 
+
+    console.log('service access token: ', this.oAuthService.getAccessToken());
+    console.log('storage access token: ', this.oAuthStorage.getItem('access_token'));
     fetch(getAllTransactionsUrl, {
       headers: {
         Accept: 'application/x-ndjson',
