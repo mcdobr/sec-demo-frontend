@@ -18,8 +18,8 @@ import {TransactionService} from './transaction.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { AuthenticationBarComponent } from './authentication-bar/authentication-bar.component';
-import { HomeComponent } from './home/home.component';
+import {AuthenticationBarComponent} from './authentication-bar/authentication-bar.component';
+import {HomeComponent} from './home/home.component';
 
 @NgModule({
   declarations: [
